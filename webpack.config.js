@@ -21,20 +21,20 @@ module.exports = {
     ],
     vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
   },
-  devtool: 'cheap-source-map',
+  devtool: 'source-map',
   output: {
     pathinfo: true,
     path: path.resolve(__dirname, 'dist'),
-    publicPath: './dist/',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   watch: true,
   plugins: [
     definePlugin,
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'index.html'),
+      template: path.resolve(__dirname, 'src/index.html'),
       hash: false,
-      favicon: path.resolve(__dirname, 'assets/favicon.ico'),
+      favicon: path.resolve(__dirname, 'public/favicon.ico'),
       filename: 'index.html',
       inject: 'body',
       minify: {
@@ -49,7 +49,7 @@ module.exports = {
       host: process.env.IP || 'localhost',
       port: process.env.PORT || 3000,
       server: {
-        baseDir: ['./', './build']
+        baseDir: ['dist']
       }
     })
   ],

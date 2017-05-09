@@ -35,9 +35,7 @@ export class Preload extends Phaser.State {
   }
 
   create () {
-    this.game.currentTrial = this.game.trials.shift()
-
-    this.state.start(this.game.currentTrial.type)
+    this.game.next()
   }
 }
 

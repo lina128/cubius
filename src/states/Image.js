@@ -29,7 +29,12 @@ export default class extends Phaser.State {
 
   create () {
     const setting = this.game.currentTrial.trialSetting
-    const { width, height } = getWidthHeight(parseInt(setting.width), parseInt(setting.height), this.cache.getImage(setting.image).width, this.cache.getImage(setting.image).height)
+    const { width, height } =
+          getWidthHeight(
+            parseInt(setting.width),
+            parseInt(setting.height),
+            this.cache.getImage(setting.image).width,
+            this.cache.getImage(setting.image).height)
 
     let x = this.world.centerX
     switch (setting.alignH) {

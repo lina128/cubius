@@ -16,6 +16,9 @@ function Main () {
 
   function handleClick () {
     const experiment = JSON.parse(code.value)
+    if (window.game) {
+      window.game.destroy()
+    }
     window.game = new Game(experiment)
   }
 }
