@@ -19,11 +19,17 @@ export default class Game extends Phaser.Game {
     this.currentTrial = null
     this.assets = []
     this.timeout = null
+    this.nextBtn = document.getElementById('next-btn')
+    this.responseArea = document.getElementById('response-area')
+    this.surveyArea = document.getElementById('survey-area')
     this.waitResponse = this.waitResponse.bind(this)
     this.recordResponse = this.recordResponse.bind(this)
     this.processInputAutoTimedAdvance = this.processInputAutoTimedAdvance.bind(this)
     this.processInputKeyAdvance = this.processInputKeyAdvance.bind(this)
     this.processInputErrorFeedback = this.processInputErrorFeedback.bind(this)
+    this.processInputNextButton = this.processInputNextButton.bind(this)
+    this.processInputTextResponse = this.processInputTextResponse.bind(this)
+    this.processInputSurveyResponse = this.processInputSurveyResponse.bind(this)
     this.next = this.next.bind(this)
 
     this.state.add('BOOT', BOOT)
@@ -35,8 +41,12 @@ export default class Game extends Phaser.Game {
   next () {
     if (this.timeout) {
       clearTimeout(this.timeout)
+      this.timeout = null
     }
     this.input.keyboard.onDownCallback = null
+    this.nextBtn.style.display = 'none'
+    this.responseArea.style.display = 'none'
+    this.surveyArea.style.display = 'none'
     if (this.trials.length > 0) {
       this.currentTrial = this.trials.shift()
       this.state.start(this.currentTrial.type)
@@ -56,12 +66,13 @@ export default class Game extends Phaser.Game {
               this.currentTrial.setting.inputErrorFeedbackErrorKey &&
               this.currentTrial.setting.inputErrorFeedbackErrorKey.length > 0) {
       this.processInputErrorFeedback()
+    } else if (this.currentTrial.setting.inputNextButton) {
+      this.processInputNextButton()
+    } else if (this.currentTrial.setting.inputTextResponse) {
+      this.processInputTextResponse()
+    } else if (this.currentTrial.setting.inputSurveyResponse) {
+      this.processInputSurveyResponse()
     }
-    /*
-inputNextButton
-inputTextResponse
-inputSurveyResponse
-*/
   }
 
   recordResponse () {
@@ -81,7 +92,6 @@ inputSurveyResponse
       let keyCode = e.which || e.keyCode
       let pos = this.currentTrial.setting.inputKeyAdvance.indexOf(keyCode)
       if (pos > -1) {
-        this.input.keyboard.onDownCallback = null
         this.recordResponse()
         this.next()
       }
@@ -110,16 +120,34 @@ inputSurveyResponse
           if (myGame.currentTrial.setting.inputErrorFeedbackAllowCorrection) {
             myGame.processInputErrorFeedback()
           } else {
-            myGame.input.keyboard.onDownCallback = null
             myGame.recordResponse()
             myGame.next()
           }
         })
       } else if (correct > -1) {
-        this.input.keyboard.onDownCallback = null
         this.recordResponse()
         this.next()
       }
     }
+  }
+
+  processInputNextButton () {
+    this.nextBtn.style.display = 'block'
+    let myGame = this
+    this.nextBtn.addEventListener('click', (e) => {
+      myGame.recordResponse()
+      myGame.next()
+    }, { once: true })
+  }
+
+  processInputTextResponse () {
+    this.responseArea.style.display = 'block'
+    this.processInputNextButton()
+  }
+
+  processInputSurveyResponse () {
+    this.surveyArea.src = 'https://harvard.az1.qualtrics.com/jfe/form/SV_6M8XbiLtp6lX1Ah'
+    this.surveyArea.style.display = 'block'
+    this.processInputNextButton()
   }
 }

@@ -1,0 +1,152 @@
+#example 1 - option 1: auto time advance
+
+{
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Na Li 1",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputAutoTimedAdvance": "1000"
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+#example 2 - option 2: key advance
+
+{
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Na Li 1",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputKeyAdvance": [65]
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+#example 3 - option 3: error feedback
+
+{
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Na Li 1",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputErrorFeedbackKeyAdvance": [65],
+        "inputErrorFeedbackErrorKey": [66],
+        "inputErrorFeedbackMessage": "You are wrong",
+        "inputErrorFeedbackAllowCorrection": true
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+#example 4 - option 4: next button
+
+{
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Na Li 1",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputNextButton": true
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+# example 5 - option 5: text response
+
+{
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Na Li 1",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputTextResponse": true
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+# example 6 - option 6: survey response
+
+{
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Na Li 1",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputSurveyResponse": true
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}

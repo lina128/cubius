@@ -14,6 +14,18 @@ function Main () {
   const content = root.appendChild(document.createElement('div'))
   content.setAttribute('id', 'content')
 
+  const responseArea = root.appendChild(document.createElement('div'))
+  responseArea.setAttribute('id', 'response-area')
+  responseArea.setAttribute('contenteditable', true)
+
+  const iFrame = root.appendChild(document.createElement('iframe'))
+  iFrame.setAttribute('id', 'survey-area')
+  iFrame.style.display = 'none'
+
+  const nextBtn = root.appendChild(document.createElement('button'))
+  nextBtn.setAttribute('id', 'next-btn')
+  nextBtn.innerHTML = 'Next'
+
   function handleClick () {
     const experiment = JSON.parse(code.value)
     if (window.game) {
