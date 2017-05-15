@@ -3,6 +3,7 @@ import 'p2'
 import Phaser from 'phaser'
 import BOOT from './states/Boot'
 import PRELOAD from './states/Preload'
+import BLANK from './states/Blank'
 import END from './states/End'
 import config from './config'
 
@@ -15,6 +16,7 @@ export default class Game extends Phaser.Game {
     super(width, height, Phaser.CANVAS, 'content', null)
 
     this.experiment = experiment
+    this.fixationDuration = null
     this.trials = null
     this.currentTrial = null
     this.assets = []
@@ -34,6 +36,7 @@ export default class Game extends Phaser.Game {
 
     this.state.add('BOOT', BOOT)
     this.state.add('PRELOAD', PRELOAD)
+    this.state.add('BLANK', BLANK)
     this.state.add('END', END)
     this.state.start('BOOT')
   }
@@ -47,12 +50,7 @@ export default class Game extends Phaser.Game {
     this.nextBtn.style.display = 'none'
     this.responseArea.style.display = 'none'
     this.surveyArea.style.display = 'none'
-    if (this.trials.length > 0) {
-      this.currentTrial = this.trials.shift()
-      this.state.start(this.currentTrial.type)
-    } else {
-      this.state.start('END', END)
-    }
+    this.state.start('BLANK')
   }
 
   waitResponse () {

@@ -1,6 +1,7 @@
 #example 1 - option 1: auto time advance
 
 {
+  "fixationDuration":"100",
   "structure": [{
     "id": 1,
     "level": "trial"
@@ -11,7 +12,7 @@
       "type": "TEXT",
       "setting": {
         "font": "Arial",
-        "content": "Na Li 1",
+        "content": "Hello World",
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",
@@ -26,6 +27,7 @@
 #example 2 - option 2: key advance
 
 {
+  "fixationDuration":"100",
   "structure": [{
     "id": 1,
     "level": "trial"
@@ -36,7 +38,7 @@
       "type": "TEXT",
       "setting": {
         "font": "Arial",
-        "content": "Na Li 1",
+        "content": "Hello World",
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",
@@ -51,6 +53,7 @@
 #example 3 - option 3: error feedback
 
 {
+  "fixationDuration":"100",
   "structure": [{
     "id": 1,
     "level": "trial"
@@ -61,7 +64,7 @@
       "type": "TEXT",
       "setting": {
         "font": "Arial",
-        "content": "Na Li 1",
+        "content": "Hello World",
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",
@@ -79,6 +82,7 @@
 #example 4 - option 4: next button
 
 {
+  "fixationDuration":"100",
   "structure": [{
     "id": 1,
     "level": "trial"
@@ -89,7 +93,7 @@
       "type": "TEXT",
       "setting": {
         "font": "Arial",
-        "content": "Na Li 1",
+        "content": "Hello World",
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",
@@ -104,6 +108,7 @@
 # example 5 - option 5: text response
 
 {
+  "fixationDuration":"100",
   "structure": [{
     "id": 1,
     "level": "trial"
@@ -114,7 +119,7 @@
       "type": "TEXT",
       "setting": {
         "font": "Arial",
-        "content": "Na Li 1",
+        "content": "Hello World",
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",
@@ -129,6 +134,7 @@
 # example 6 - option 6: survey response
 
 {
+  "fixationDuration":"100",
   "structure": [{
     "id": 1,
     "level": "trial"
@@ -139,11 +145,341 @@
       "type": "TEXT",
       "setting": {
         "font": "Arial",
-        "content": "Na Li 1",
+        "content": "Hello World",
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",
         "inputSurveyResponse": true
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+# example 7 - IMAGE type with blink effect
+
+{
+  "fixationDuration":"100",
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Image",
+      "type": "IMAGE",
+      "setting": {
+        "image": "http://res.cloudinary.com/demo/video/upload/c_scale,h_224,w_400/dog.jpg",
+        "alignH": "center",
+        "alignV": "middle",
+        "width": "",
+        "height": "",
+        "effect": {
+          "type": "blink",
+          "setting": {
+            "duration": "400",
+            "repeat" : "-1"
+          }
+        }
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+# example 8 - IMAGE type with flip effect
+{
+  "fixationDuration":"100",
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Image",
+      "type": "IMAGE",
+      "setting": {
+        "image": "http://res.cloudinary.com/demo/video/upload/c_scale,h_224,w_400/dog.jpg",
+        "alignH": "center",
+        "alignV": "middle",
+        "width": "",
+        "height": "",
+        "effect": {
+          "type": "flip",
+          "setting": {
+            "duration": "400",
+            "repeat" : "-1"
+          }
+        }
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+# example 9 - IMAGE type with rotate effect
+{
+  "fixationDuration":"100",
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }, {
+    "id": 2,
+    "level": "trial"
+  }, {
+    "id": 3,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Image",
+      "type": "IMAGE",
+      "setting": {
+        "image": "http://res.cloudinary.com/ikelabrepo/image/upload/v1494533733/spiral_qpuv1q.png",
+        "alignH": "center",
+        "alignV": "middle",
+        "width": "",
+        "height": "",
+        "effect": {
+          "type": "rotate",
+          "setting": {
+            "duration": "5000",
+            "repeat" : "10",
+            "clockwise" : true
+          }
+        },
+        "inputAutoTimedAdvance": "50000"
+      },
+      "condition": {},
+      "screenshot": ""
+    },
+    "2": {
+      "name": "Image",
+      "type": "IMAGE",
+      "setting": {
+        "image": "",
+        "alignH": "center",
+        "alignV": "middle",
+        "width": "",
+        "height": "",
+        "effect": {},
+"inputAutoTimedAdvance": "200"
+      },
+      "condition": {},
+      "screenshot": ""
+    },
+    "3": {
+      "name": "Image",
+      "type": "IMAGE",
+      "setting": {
+        "image": "http://res.cloudinary.com/ikelabrepo/image/upload/v1494533922/spiral-mirror_ie4vm3.png",
+        "alignH": "center",
+        "alignV": "middle",
+        "width": "",
+        "height": "",
+        "effect": {}
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+# example 10 - IMAGE TYPE with rotate effect Benham-disk
+{
+  "fixationDuration":"100",
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Image",
+      "type": "IMAGE",
+      "setting": {
+        "image": "http://res.cloudinary.com/ikelabrepo/image/upload/v1494533199/Benham_disc_animated.svg_iiewbd.png",
+        "alignH": "center",
+        "alignV": "middle",
+        "width": "400",
+        "height": "400",
+        "effect": {
+          "type": "rotate",
+          "setting": {
+            "duration": "145",
+            "repeat" : "-1",
+            "clockwise" : true
+          }
+        }
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+# example 10 - BLOCK TYPE
+{
+  "fixationDuration":"100",
+  "structure": [{
+    "id": 1,
+    "level": "block",
+    "children": [
+      {
+        "id": 2,
+        "level": "trial"
+      },
+      {
+        "id": 3,
+        "level": "trial"
+      },
+      {
+        "id": 4,
+        "level": "trial"
+      }
+    ]
+  }],
+  "entity": {
+    "1": {
+      "name": "Block",
+      "type": "BLOCK",
+      "setting": {
+        "randomize": false,
+        "repeat": "1",
+        "lockFirst": false,
+        "lockLast": false
+      }
+    },
+    "2": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Hello",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputAutoTimedAdvance": "1000"
+      },
+      "condition": {},
+      "screenshot": ""
+    },
+    "3": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "你好",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputAutoTimedAdvance": "1000"
+      },
+      "condition": {},
+      "screenshot": ""
+    },
+    "4": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Bonjour",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputAutoTimedAdvance": "1000"
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}
+
+# example 11 - RUN TYPE
+{
+  "fixationDuration":"100",
+  "structure": [
+      {
+        "id": 1,
+        "level": "run",
+        "children": [
+          {
+            "id": 2,
+            "level": "block",
+            "children": [
+              {
+                "id": 3,
+                "level": "trial"
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "level": "block",
+            "children": [
+              {
+                "id": 5,
+                "level": "trial"
+              }
+            ]
+          }
+        ]
+  }],
+  "entity": {
+    "1": {
+      "name": "Run",
+      "type": "RUN",
+      "setting": {
+        "randomize": false,
+        "abtesting": false
+      }
+    },
+    "2": {
+      "name": "Block",
+      "type": "BLOCK",
+      "setting": {
+        "randomize": false,
+        "repeat": "0",
+        "lockFirst": false,
+        "lockLast": false
+      }
+    },
+    "3": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "Hello",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputAutoTimedAdvance": "1000"
+      },
+      "condition": {},
+      "screenshot": ""
+    },
+    "4": {
+      "name": "Block",
+      "type": "BLOCK",
+      "setting": {
+        "randomize": false,
+        "repeat": "0",
+        "lockFirst": false,
+        "lockLast": false
+      }
+    },
+    "5": {
+      "name": "Text",
+      "type": "TEXT",
+      "setting": {
+        "font": "Arial",
+        "content": "你好",
+        "fontSize": "76",
+        "fontColor": "#f47373",
+        "fontWeight": "normal",
+        "inputAutoTimedAdvance": "1000"
       },
       "condition": {},
       "screenshot": ""

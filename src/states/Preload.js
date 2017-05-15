@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-export class Preload extends Phaser.State {
+export default class PRELOAD extends Phaser.State {
   constructor () {
     super()
     this.text = null
@@ -38,5 +38,3 @@ export class Preload extends Phaser.State {
     this.game.next()
   }
 }
-
-export default Preload

@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import * as handle from './effects'
 
 function getWidthHeight (w, h, wOld, hOld) {
   if (w && h) {
@@ -20,7 +21,7 @@ function getWidthHeight (w, h, wOld, hOld) {
   return { width: wOld, height: hOld }
 }
 
-export default class extends Phaser.State {
+export default class Image extends Phaser.State {
   init () {
     this.stage.backgroundColor = '#FFFFFF'
   }
@@ -28,7 +29,7 @@ export default class extends Phaser.State {
   preload () {}
 
   create () {
-    const setting = this.game.currentTrial.trialSetting
+    const setting = this.game.currentTrial.setting
     const { width, height } =
           getWidthHeight(
             parseInt(setting.width),
@@ -56,17 +57,16 @@ export default class extends Phaser.State {
         break
     }
 
-    const sprite = this.add.sprite(x, y, setting.image)
-    sprite.width = width
-    sprite.height = height
-    sprite.anchor.setTo(0.5, 0.5)
+    this.sprite = this.add.sprite(x, y, setting.image)
+    this.sprite.width = width
+    this.sprite.height = height
+    this.sprite.anchor.setTo(0.5, 0.5)
 
-    if (setting.fadeIn) {
-      sprite.alpha = 0
-      this.add.tween(sprite).to({ alpha: 1 }, parseInt(setting.fadeIn), Phaser.Easing.Linear.None, true, 0, 0, false)
+    if (setting.effect.type) {
+      handle[setting.effect.type].call(this, setting.effect.setting)
     }
+    this.game.waitResponse()
   }
 
-  render () {
-  }
+  render () {}
 }

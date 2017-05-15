@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-export default class extends Phaser.State {
+export default class Text extends Phaser.State {
   init () {
     this.stage.backgroundColor = '#FFFFFF'
   }

@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 import * as myStates from './'
 
-export default class extends Phaser.State {
+export default class BOOT extends Phaser.State {
   constructor () {
     super()
     this.myModules = new Set()
@@ -54,22 +54,32 @@ export default class extends Phaser.State {
 
   buildBlock (blockStructure, experimentEntity) {
     let toProcess = [...blockStructure.children]
+
+    let first, last
     if (experimentEntity[blockStructure.id].setting.lockFirst === true) {
+      first = toProcess[0]
       toProcess = toProcess.slice(1)
     }
     if (experimentEntity[blockStructure.id].setting.lockLast === true) {
+      last = toProcess[toProcess.length - 1]
       toProcess = toProcess.slice(0, toProcess.length - 1)
     }
 
-    toProcess = this.concatArr(toProcess, parseInt(experimentEntity[blockStructure.id].setting.display))
+    toProcess = this.concatArr(toProcess, parseInt(experimentEntity[blockStructure.id].setting.repeat) + 1)
 
     if (experimentEntity[blockStructure.id].setting.randomize === true) {
       this.shuffle(toProcess)
     }
 
     let trials = []
+    if (first) {
+      trials.push(this.buildTrial(experimentEntity[first.id]))
+    }
     for (let i = 0; i < toProcess.length; i++) {
       trials.push(this.buildTrial(experimentEntity[toProcess[i].id]))
+    }
+    if (last) {
+      trials.push(this.buildTrial(experimentEntity[last.id]))
     }
 
     return trials
@@ -109,7 +119,9 @@ export default class extends Phaser.State {
           trials.push(...this.buildRun(experiment.structure[i], experiment.entity))
         }
       }
+
       this.game.trials = trials
+      this.game.fixationDuration = parseInt(experiment.fixationDuration)
 
       for (let m of this.myModules) {
         this.state.add(m, myStates[m])
@@ -134,7 +146,7 @@ export default class extends Phaser.State {
   }
 
   concatArr (arr, n) {
-    if (n === 0) {
+    if (!n || n <= 0) {
       return []
     }
 
