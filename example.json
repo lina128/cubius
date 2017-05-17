@@ -486,3 +486,29 @@
     }
   }
 }
+
+# example 12 - MOT TYPE
+
+{
+  "fixationDuration":"100",
+  "structure": [{
+    "id": 1,
+    "level": "trial"
+  }],
+  "entity": {
+    "1": {
+      "name": "Multiple Object Tracking",
+      "type": "MOT",
+      "setting": {
+        "image": "http://res.cloudinary.com/ikelabrepo/image/upload/v1494857929/angrybird_koetwn.png",
+        "targetCount": "3",
+        "nonTargetCount": "3",
+        "velocity": "60",
+        "interactMode": "collide",
+        "duration": "1000"
+      },
+      "condition": {},
+      "screenshot": ""
+    }
+  }
+}

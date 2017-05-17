@@ -1,5 +1,13 @@
 import Phaser from 'phaser'
+import { shuffle } from '../utils'
 import * as myStates from './'
+
+function checkMediaType (url) {
+  if (typeof url === 'string' && url.substring(0, 4) === 'http') {
+    return true
+  }
+  return false
+}
 
 export default class BOOT extends Phaser.State {
   constructor () {
@@ -27,22 +35,15 @@ export default class BOOT extends Phaser.State {
     this.state.start('PRELOAD')
   }
 
-  checkMediaType (url) {
-    if (typeof url === 'string' && url.substring(0, 4) === 'http') {
-      return true
-    }
-    return false
-  }
-
   buildTrial (trial) {
     for (let s in trial.setting) {
       if (typeof trial.setting[s] === 'string') {
-        if (this.checkMediaType(trial.setting[s])) {
+        if (checkMediaType(trial.setting[s])) {
           this.game.assets.push(trial.setting[s])
         }
       } else if (Array.isArray(trial.setting[s])) {
         for (let i = 0; i < trial.setting[s].length; i++) {
-          if (this.checkMediaType(trial.setting[s][i])) {
+          if (checkMediaType(trial.setting[s][i])) {
             this.game.assets.push(trial.setting[s])
           }
         }
@@ -68,7 +69,7 @@ export default class BOOT extends Phaser.State {
     toProcess = this.concatArr(toProcess, parseInt(experimentEntity[blockStructure.id].setting.repeat) + 1)
 
     if (experimentEntity[blockStructure.id].setting.randomize === true) {
-      this.shuffle(toProcess)
+      shuffle(toProcess)
     }
 
     let trials = []
@@ -89,7 +90,7 @@ export default class BOOT extends Phaser.State {
     let toProcess = [...runStructure.children]
 
     if (experimentEntity[runStructure.id].setting.randomize === true) {
-      this.shuffle(toProcess)
+      shuffle(toProcess)
     }
 
     if (experimentEntity[runStructure.id].setting.abtesting === true) {
@@ -127,22 +128,6 @@ export default class BOOT extends Phaser.State {
         this.state.add(m, myStates[m])
       }
     }
-  }
-
-  shuffle (arr) {
-    let curr = arr.length
-    let rand
-    while (curr > 0) {
-      rand = Math.floor(curr * Math.random())
-      curr--
-      this.swap(arr, rand, curr)
-    }
-  }
-
-  swap (arr, i, j) {
-    let tmp = arr[i]
-    arr[i] = arr[j]
-    arr[j] = tmp
   }
 
   concatArr (arr, n) {

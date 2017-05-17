@@ -22,6 +22,11 @@ function getWidthHeight (w, h, wOld, hOld) {
 }
 
 export default class Image extends Phaser.State {
+  constructor () {
+    super()
+    this.sprite = null
+  }
+
   init () {
     this.stage.backgroundColor = '#FFFFFF'
   }

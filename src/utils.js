@@ -4,3 +4,18 @@ export const centerGameObjects = (objects) => {
   })
 }
 
+export const shuffle = (arr) => {
+  let j = 0
+
+  for (let i = arr.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1))
+    swap(arr, i, j)
+  }
+}
+
+export const swap = (arr, i, j) => {
+  let tmp = arr[i]
+  arr[i] = arr[j]
+  arr[j] = tmp
+}
+
