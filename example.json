@@ -8,6 +8,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -34,6 +35,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -60,6 +62,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -89,6 +92,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -115,6 +119,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -141,6 +146,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -149,7 +155,7 @@
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",
-        "inputSurveyResponse": true
+        "inputSurveyResponse": 'https://harvard.az1.qualtrics.com/jfe/form/SV_6M8XbiLtp6lX1Ah'
       },
       "condition": {},
       "screenshot": ""
@@ -167,6 +173,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Image",
       "type": "IMAGE",
       "setting": {
@@ -198,6 +205,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Image",
       "type": "IMAGE",
       "setting": {
@@ -235,6 +243,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Image",
       "type": "IMAGE",
       "setting": {
@@ -257,6 +266,7 @@
       "screenshot": ""
     },
     "2": {
+      "id": 2,
       "name": "Image",
       "type": "IMAGE",
       "setting": {
@@ -272,6 +282,7 @@
       "screenshot": ""
     },
     "3": {
+      "id": 3,
       "name": "Image",
       "type": "IMAGE",
       "setting": {
@@ -297,6 +308,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Image",
       "type": "IMAGE",
       "setting": {
@@ -343,6 +355,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Block",
       "type": "BLOCK",
       "setting": {
@@ -353,6 +366,7 @@
       }
     },
     "2": {
+      "id": 2,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -367,6 +381,7 @@
       "screenshot": ""
     },
     "3": {
+      "id": 3,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -381,6 +396,7 @@
       "screenshot": ""
     },
     "4": {
+      "id": 4,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -429,6 +445,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Run",
       "type": "RUN",
       "setting": {
@@ -437,6 +454,7 @@
       }
     },
     "2": {
+      "id": 2,
       "name": "Block",
       "type": "BLOCK",
       "setting": {
@@ -447,6 +465,7 @@
       }
     },
     "3": {
+      "id": 3,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -461,6 +480,7 @@
       "screenshot": ""
     },
     "4": {
+      "id": 4,
       "name": "Block",
       "type": "BLOCK",
       "setting": {
@@ -471,6 +491,7 @@
       }
     },
     "5": {
+      "id": 5,
       "name": "Text",
       "type": "TEXT",
       "setting": {
@@ -497,6 +518,7 @@
   }],
   "entity": {
     "1": {
+      "id": 1,
       "name": "Multiple Object Tracking",
       "type": "MOT",
       "setting": {
@@ -505,7 +527,8 @@
         "nonTargetCount": "3",
         "velocity": "60",
         "interactMode": "collide",
-        "duration": "1000"
+        "duration": "1000",
+        "inputNextButton": true
       },
       "condition": {},
       "screenshot": ""

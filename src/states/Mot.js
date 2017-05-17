@@ -9,7 +9,9 @@ export default class Mot extends Phaser.State {
     this.stop = false
     this.velocity = 60
     this.count = 0
+    this.tracked = 0
     this.freeze = this.freeze.bind(this)
+    this.revealTarget = this.revealTarget.bind(this)
   }
 
   init () {
@@ -21,7 +23,6 @@ export default class Mot extends Phaser.State {
   create () {
     this.generateSprites()
     setTimeout(this.freeze, parseInt(this.game.currentTrial.setting.duration))
-    this.game.waitResponse()
   }
 
   render () {
@@ -99,13 +100,23 @@ export default class Mot extends Phaser.State {
 
   freeze () {
     this.stop = true
+    let start = Date.now()
     this.sprites.forEach(sprite => {
       sprite.inputEnabled = true
       sprite.input.useHandCursor = true
       sprite.events.onInputDown.add(() => {
+        sprite.tint = 0x999999
         this.count--
+        if (this.targets.indexOf(sprite) > -1) {
+          this.tracked++
+        }
         if (this.count <= 0) {
+          let end = Date.now()
           this.revealTarget()
+          this.game.waitResponse({
+            reactionTime: end - start,
+            tracked: this.tracked
+          })
         }
       })
     })
@@ -115,7 +126,7 @@ export default class Mot extends Phaser.State {
     sprite.body.velocity.set(0, 0)
   }
 
-  revealTarget (targets) {
+  revealTarget () {
     let graphics = this.game.add.graphics(0, 0)
     graphics.lineStyle(2, 0x0000FF, 1)
     this.targets.forEach(target => {

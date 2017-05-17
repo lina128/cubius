@@ -16,6 +16,7 @@ export default class Game extends Phaser.Game {
     super(width, height, Phaser.CANVAS, 'content', null)
 
     this.experiment = experiment
+    this.result = []
     this.fixationDuration = null
     this.trials = null
     this.currentTrial = null
@@ -49,54 +50,79 @@ export default class Game extends Phaser.Game {
     this.input.keyboard.onDownCallback = null
     this.nextBtn.style.display = 'none'
     this.responseArea.style.display = 'none'
+    this.responseArea.innerHTML = ''
     this.surveyArea.style.display = 'none'
+    this.surveyArea.src = ''
     this.state.start('BLANK')
   }
 
-  waitResponse () {
+  waitResponse (response) {
     if (this.currentTrial.setting.inputAutoTimedAdvance && this.currentTrial.setting.inputAutoTimedAdvance !== '0') {
-      this.processInputAutoTimedAdvance()
+      this.processInputAutoTimedAdvance(response)
     }
     if (this.currentTrial.setting.inputKeyAdvance && this.currentTrial.setting.inputKeyAdvance.length > 0) {
-      this.processInputKeyAdvance()
+      this.processInputKeyAdvance(response)
     } else if (this.currentTrial.setting.inputErrorFeedbackKeyAdvance &&
               this.currentTrial.setting.inputErrorFeedbackKeyAdvance.length > 0 &&
               this.currentTrial.setting.inputErrorFeedbackErrorKey &&
               this.currentTrial.setting.inputErrorFeedbackErrorKey.length > 0) {
-      this.processInputErrorFeedback()
+      this.processInputErrorFeedback(response)
     } else if (this.currentTrial.setting.inputNextButton) {
-      this.processInputNextButton()
+      this.processInputNextButton(response)
     } else if (this.currentTrial.setting.inputTextResponse) {
-      this.processInputTextResponse()
+      this.processInputTextResponse(response)
     } else if (this.currentTrial.setting.inputSurveyResponse) {
-      this.processInputSurveyResponse()
+      this.processInputSurveyResponse(response)
     }
   }
 
-  recordResponse () {
+  recordResponse (response) {
+    if (!response || typeof response !== 'object') {
+      console.log(`Expect a response from this trial, found ${typeof response}. Please check your processing method.`)
+      return
+    }
 
+    this.result.push({
+      id: this.currentTrial.id,
+      module: this.currentTrial.name,
+      screenshot: this.currentTrial.screenshot || '',
+      note: this.currentTrial.note || '',
+      condition: this.currentTrial.condition || '',
+      ...response
+    })
   }
 
-  processInputAutoTimedAdvance () {
+  processInputAutoTimedAdvance (response) {
     let time = parseInt(this.currentTrial.setting.inputAutoTimedAdvance)
     this.timeout = setTimeout(() => {
-      this.recordResponse()
+      this.recordResponse({
+        reactionTime: time,
+        ...response
+      })
       this.next()
     }, time)
   }
 
-  processInputKeyAdvance () {
+  processInputKeyAdvance (response) {
+    let start = Date.now()
     this.input.keyboard.onDownCallback = (e) => {
       let keyCode = e.which || e.keyCode
       let pos = this.currentTrial.setting.inputKeyAdvance.indexOf(keyCode)
       if (pos > -1) {
-        this.recordResponse()
+        let end = Date.now()
+        this.recordResponse({
+          reactionTime: end - start,
+          keyPress: keyCode.toString(),
+          ...response
+        })
         this.next()
       }
     }
   }
 
-  processInputErrorFeedback () {
+  processInputErrorFeedback (response) {
+    let start = Date.now()
+    let wrongKeys = []
     this.input.keyboard.onDownCallback = (e) => {
       let keyCode = e.which || e.keyCode
       let correct = this.currentTrial.setting.inputErrorFeedbackKeyAdvance.indexOf(keyCode)
@@ -116,36 +142,76 @@ export default class Game extends Phaser.Game {
         tween.onComplete.add(function () {
           wrongMessage.destroy()
           if (myGame.currentTrial.setting.inputErrorFeedbackAllowCorrection) {
+            wrongKeys.push(keyCode.toString())
             myGame.processInputErrorFeedback()
           } else {
-            myGame.recordResponse()
+            let end = Date.now()
+            myGame.recordResponse({
+              reactionTime: end - start,
+              keyPress: '',
+              wrongKeyPress: keyCode.toString(),
+              ...response
+            })
             myGame.next()
           }
         })
       } else if (correct > -1) {
-        this.recordResponse()
+        let end = Date.now()
+        this.recordResponse({
+          reactionTime: end - start,
+          keyPress: keyCode.toString(),
+          wrongKeyPress: wrongKeys.join(','),
+          ...response
+        })
         this.next()
       }
     }
   }
 
-  processInputNextButton () {
+  processInputNextButton (response) {
     this.nextBtn.style.display = 'block'
     let myGame = this
+    let start = Date.now()
     this.nextBtn.addEventListener('click', (e) => {
-      myGame.recordResponse()
+      let end = Date.now()
+      myGame.recordResponse({
+        reactionTime: end - start,
+        ...response
+      })
       myGame.next()
     }, { once: true })
   }
 
-  processInputTextResponse () {
+  processInputTextResponse (response) {
     this.responseArea.style.display = 'block'
-    this.processInputNextButton()
+    this.nextBtn.style.display = 'block'
+    let myGame = this
+    let start = Date.now()
+    this.nextBtn.addEventListener('click', (e) => {
+      let end = Date.now()
+      myGame.recordResponse({
+        reactionTime: end - start,
+        textResponse: this.responseArea.innerHTML,
+        ...response
+      })
+      myGame.next()
+    }, { once: true })
   }
 
-  processInputSurveyResponse () {
-    this.surveyArea.src = 'https://harvard.az1.qualtrics.com/jfe/form/SV_6M8XbiLtp6lX1Ah'
+  processInputSurveyResponse (response) {
+    this.surveyArea.src = this.currentTrial.setting.inputSurveyResponse
     this.surveyArea.style.display = 'block'
-    this.processInputNextButton()
+    this.nextBtn.style.display = 'block'
+    let myGame = this
+    let start = Date.now()
+    this.nextBtn.addEventListener('click', (e) => {
+      let end = Date.now()
+      myGame.recordResponse({
+        reactionTime: end - start,
+        surveyResponse: this.surveyArea.src,
+        ...response
+      })
+      myGame.next()
+    }, { once: true })
   }
 }
