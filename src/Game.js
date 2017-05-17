@@ -82,12 +82,16 @@ export default class Game extends Phaser.Game {
       return
     }
 
+    let arr = []
+    for (let i in this.currentTrial.condition) {
+      arr.push(this.currentTrial.condition[i].name)
+    }
     this.result.push({
       id: this.currentTrial.id,
       module: this.currentTrial.name,
       screenshot: this.currentTrial.screenshot || '',
       note: this.currentTrial.note || '',
-      condition: this.currentTrial.condition || '',
+      condition: arr.join(','),
       ...response
     })
   }

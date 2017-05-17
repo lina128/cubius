@@ -74,4 +74,8 @@ export default class Image extends Phaser.State {
   }
 
   render () {}
+
+  shutdown () {
+    this.sprite = null
+  }
 }

@@ -39,6 +39,15 @@ export default class Mot extends Phaser.State {
     }
   }
 
+  shutdown () {
+    this.sprites = null
+    this.targets = []
+    this.stop = false
+    this.velocity = 60
+    this.count = 0
+    this.tracked = 0
+  }
+
   generateSprites () {
     let w = this.cache.getImage(this.game.currentTrial.setting.image).width
     let h = this.cache.getImage(this.game.currentTrial.setting.image).height

@@ -17,7 +17,8 @@ const webpackConfig = {
     alias : {
       'phaser': project.paths.module('phaser-ce/build/custom/phaser-split.js'),
       'pixi': project.paths.module('phaser-ce/build/custom/pixi.js'),
-      'p2': project.paths.module('phaser-ce/build/custom/p2.js')
+      'p2': project.paths.module('phaser-ce/build/custom/p2.js'),
+      'papa': project.paths.module('papaparse/papaparse.min.js')
     }
   },
   module : {}
@@ -105,6 +106,9 @@ webpackConfig.module.loaders = [
   }, {
     test   : /p2\.js/,
     loader : 'expose-loader?p2'
+  }, {
+    test   : /papaparse\.min\.js/,
+    loader : 'expose-loader?Papa'
   }
 ]
 

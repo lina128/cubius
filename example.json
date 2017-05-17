@@ -515,6 +515,9 @@
   "structure": [{
     "id": 1,
     "level": "trial"
+  }, {
+    "id": 2,
+    "level": "trial"
   }],
   "entity": {
     "1": {
@@ -526,6 +529,22 @@
         "targetCount": "3",
         "nonTargetCount": "3",
         "velocity": "60",
+        "interactMode": "collide",
+        "duration": "1000",
+        "inputNextButton": true
+      },
+      "condition": {},
+      "screenshot": ""
+    },
+    "2": {
+      "id": 2,
+      "name": "Multiple Object Tracking",
+      "type": "MOT",
+      "setting": {
+        "image": "http://res.cloudinary.com/ikelabrepo/image/upload/c_scale,w_30/v1494857929/angrybird_koetwn.png",
+        "targetCount": "1",
+        "nonTargetCount": "1",
+        "velocity": "120",
         "interactMode": "collide",
         "duration": "1000",
         "inputNextButton": true
