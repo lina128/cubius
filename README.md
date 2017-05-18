@@ -18,7 +18,7 @@ We are looking for contributors to design new modules and effects, please send a
 * yarn `^0.23.0` or npm `^3.0.0`
 
 ## Installation
-After confirming that your environment meets the above [requirements](#requirements), you can create a new project based on `cubius` by doing the following:
+After confirming that your environment meets the above [requirements](#requirements), checkout this project and give it a new name:
 
 ```bash
 $ git clone https://github.com/lina128/cubius.git <my-project-name>
