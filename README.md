@@ -7,7 +7,7 @@ We are looking for contributors to design new modules and effects, please send a
 ## Table of Contents
 1. [Requirements](#requirements)
 2. [Installation](#installation)
-3. [Running the Project] (#running-the-project)
+3. [Running the Project](#running-the-project)
 4. [Project Structure](#project-structure)
 5. Live Development
 6. Development
