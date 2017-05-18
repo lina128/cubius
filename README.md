@@ -44,3 +44,33 @@ $ yarn start  # Start the development server (or `npm start`)
 |`deploy`           |Builds the application to ./dist|
 
 ## Project Structure
+The project structure follows the **fractal** pattern demonstrated in this project (https://github.com/davezuko/react-redux-starter-kit) by Davezuko.
+
+```
+.
+├── bin                      # All build-related code
+├── config                   # All configurations
+├── dist                     # Compired files
+├── public                   # Static public assets
+├── server                   # Express application that provides webpack middleware
+│   └── main.js              # Server application entry point
+├── src                      # Application source code
+│   ├── index.html           # Main HTML page container for app
+│   ├── main.js              # Application rendering
+│   ├── config.js            # Game configurations
+│   ├── Game                 # Main Game object for app
+│   ├── states               # Main route definitions and async split points
+│   │   ├── index.js         # Bootstrap states
+│   │   ├── Blank.js         # Blank state
+│   │   ├── Boot.js          # Boot state
+│   │   ├── Preload.js       # Preload state
+│   │   ├── End.js           # End state
+│   │   ├── Text.js          # User-defined state
+│   │   ├── Image.js         # User-defined state
+│   │   ├── effects             # Fractal route
+│   │   │   ├── index.js     # Bootstrap effects
+│   │   │   ├── blink.js     # User-defined effect
+│   │   │   ├── flip.js      # User-defined effect
+│   │   │   └── rotate.js    # User-defined effect
+└── tests                    # Unit tests
+```
