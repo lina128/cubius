@@ -16,7 +16,6 @@ export default class BOOT extends Phaser.State {
   }
 
   init () {
-    this.game.input.keyboard.addKeyCapture(Phaser.Keyboard.SPACEBAR)
     this.stage.backgroundColor = '#FFFFFF'
     this.text = this.add.text(this.world.centerX, this.world.centerY, 'Loading ...', { fill: '#3a3a08' })
     this.text.anchor.setTo(0.5, 0.5)

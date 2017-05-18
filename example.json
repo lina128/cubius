@@ -13,7 +13,7 @@
       "type": "TEXT",
       "setting": {
         "font": "Arial",
-        "content": "Hello World",
+        "content": "Hello",
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",

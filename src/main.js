@@ -32,6 +32,7 @@ function Main () {
       window.game.destroy()
     }
     window.game = new Game(experiment)
+    btn.blur()
   }
 }
 
