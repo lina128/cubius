@@ -1,8 +1,8 @@
 {
-  "name": "PhaserES6Webpack",
+  "name": "Cubius",
   "version": "1.0.0",
-  "description": "",
-  "author": "leandro cabrera <leandcabrera@gmail.com>",
+  "description": "This is an open source project supported by the Vision Lab at Harvard University. Cubius is an experiment engine that runs psychology experiments online.",
+  "author": "Na Li <linazhao128@gmail.com>",
   "main": "index.js",
   "scripts": {
     "compile": "better-npm-run compile",
