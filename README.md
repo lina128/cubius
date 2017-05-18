@@ -7,8 +7,8 @@ We are looking for contributors to design new modules and effects, please send a
 ## Table of Contents
 1. [Requirements](#requirements)
 2. [Installation](#installation)
-3. Running the Project
-4. Project Structure
+3. [Running the Project] (#running-the-project)
+4. [Project Structure](#project-structure)
 5. Live Development
 6. Development
 7. Donation
@@ -30,3 +30,17 @@ When that's done, install the project dependencies. It is recommended that you u
 ```bash
 $ yarn  # Install project dependencies (or `npm install`)
 ```
+
+## Running the Project
+After completing the [installation](#installation) step, you're ready to start the project!
+
+```bash
+$ yarn start  # Start the development server (or `npm start`)
+```
+
+|`yarn <script>`    |Description|
+|-------------------|-----------|
+|`start`            |Serves your app at `localhost:1300`|
+|`deploy`           |Builds the application to ./dist|
+
+## Project Structure
