@@ -163,7 +163,7 @@
   }
 }
 
-# example 7 - IMAGE type with blink effect
+# example 7 - IMAGE type with flicker effect
 
 {
   "fixationDuration":"100",
@@ -183,7 +183,7 @@
         "width": "",
         "height": "",
         "effect": {
-          "type": "blink",
+          "type": "flicker",
           "setting": {
             "duration": "400",
             "repeat" : "-1"
@@ -340,7 +340,7 @@
       "name": "Block",
       "type": "BLOCK",
       "setting": {
-        "randomize": false,
+        "shuffle": false,
         "repeat": "1",
         "lockFirst": false,
         "lockLast": false
@@ -430,7 +430,7 @@
       "name": "Run",
       "type": "RUN",
       "setting": {
-        "randomize": false,
+        "shuffle": false,
         "abtesting": false
       }
     },
@@ -439,7 +439,7 @@
       "name": "Block",
       "type": "BLOCK",
       "setting": {
-        "randomize": false,
+        "shuffle": false,
         "repeat": "0",
         "lockFirst": false,
         "lockLast": false
@@ -465,7 +465,7 @@
       "name": "Block",
       "type": "BLOCK",
       "setting": {
-        "randomize": false,
+        "shuffle": false,
         "repeat": "0",
         "lockFirst": false,
         "lockLast": false

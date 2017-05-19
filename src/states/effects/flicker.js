@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-export default function blink (setting) {
+export default function flicker (setting) {
   this.sprite.alpha = 0
   this.add.tween(this.sprite).to(
     { alpha: 1 },

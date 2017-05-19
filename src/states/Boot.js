@@ -67,7 +67,7 @@ export default class BOOT extends Phaser.State {
 
     toProcess = this.concatArr(toProcess, parseInt(experimentEntity[blockStructure.id].setting.repeat) + 1)
 
-    if (experimentEntity[blockStructure.id].setting.randomize === true) {
+    if (experimentEntity[blockStructure.id].setting.shuffle === true) {
       shuffle(toProcess)
     }
 
@@ -88,7 +88,7 @@ export default class BOOT extends Phaser.State {
   buildRun (runStructure, experimentEntity) {
     let toProcess = [...runStructure.children]
 
-    if (experimentEntity[runStructure.id].setting.randomize === true) {
+    if (experimentEntity[runStructure.id].setting.shuffle === true) {
       shuffle(toProcess)
     }
 

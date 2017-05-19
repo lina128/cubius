@@ -68,7 +68,7 @@ The project structure follows the **fractal** pattern demonstrated in this proje
 │   │   ├── Image.js         # User-defined state
 │   │   ├── effects             # Fractal route
 │   │   │   ├── index.js     # Bootstrap effects
-│   │   │   ├── blink.js     # User-defined effect
+│   │   │   ├── flicker.js   # User-defined effect
 │   │   │   ├── flip.js      # User-defined effect
 │   │   │   └── rotate.js    # User-defined effect
 └── tests                    # Unit tests

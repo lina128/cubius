@@ -1,8 +1,12 @@
 {
-  "name": "Cubius",
+  "name": "cubius",
   "version": "1.0.0",
   "description": "This is an open source project supported by the Vision Lab at Harvard University. Cubius is an experiment engine that runs psychology experiments online.",
   "author": "Na Li <linazhao128@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lina128/cubius/"
+  },
   "main": "index.js",
   "scripts": {
     "compile": "better-npm-run compile",
