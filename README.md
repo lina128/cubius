@@ -3,6 +3,7 @@ This project is designed to help students and researchers make online psychology
 
 We are looking for contributors to design new modules and effects, please send a PR.
 
+![version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
 
 ## Table of Contents
 1. [Requirements](#requirements)
