@@ -23,6 +23,7 @@ export default class Game extends Phaser.Game {
     this.assets = []
     this.timeout = null
     this.nextBtn = document.getElementById('next-btn')
+    this.reminderArea = document.getElementById('reminder')
     this.responseArea = document.getElementById('response-area')
     this.surveyArea = document.getElementById('survey-area')
     this.waitResponse = this.waitResponse.bind(this)

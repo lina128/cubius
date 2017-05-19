@@ -155,7 +155,7 @@
         "fontSize": "76",
         "fontColor": "#f47373",
         "fontWeight": "normal",
-        "inputSurveyResponse": 'https://harvard.az1.qualtrics.com/jfe/form/SV_6M8XbiLtp6lX1Ah'
+        "inputSurveyResponse": "https://harvard.az1.qualtrics.com/jfe/form/SV_6M8XbiLtp6lX1Ah"
       },
       "condition": {},
       "screenshot": ""
@@ -230,7 +230,7 @@
 
 # example 9 - IMAGE type with rotate effect
 {
-  "fixationDuration":"100",
+  "fixationDuration":"50",
   "structure": [{
     "id": 1,
     "level": "trial"
@@ -253,11 +253,11 @@
           "type": "rotate",
           "setting": {
             "duration": "5000",
-            "repeat" : "10",
+            "repeat" : "2",
             "clockwise" : true
           }
         },
-        "inputAutoTimedAdvance": "50000"
+        "inputAutoTimedAdvance": "10000"
       },
       "condition": {},
       "screenshot": ""
@@ -512,6 +512,7 @@
         "velocity": "60",
         "interactMode": "collide",
         "duration": "1000",
+        "reminder": "When stopped, click the targets.",
         "inputNextButton": true
       },
       "condition": {},

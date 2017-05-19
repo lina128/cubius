@@ -14,6 +14,9 @@ function Main () {
   const content = root.appendChild(document.createElement('div'))
   content.setAttribute('id', 'content')
 
+  const reminderArea = root.appendChild(document.createElement('div'))
+  reminderArea.setAttribute('id', 'reminder')
+
   const responseArea = root.appendChild(document.createElement('div'))
   responseArea.setAttribute('id', 'response-area')
   responseArea.setAttribute('contenteditable', true)
