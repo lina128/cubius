@@ -88,6 +88,7 @@ export default class Game extends Phaser.Game {
     }
     this.result.push({
       id: this.currentTrial.id,
+      order: this.result.length,
       module: this.currentTrial.name,
       screenshot: this.currentTrial.screenshot || '',
       note: this.currentTrial.note || '',

@@ -13,8 +13,8 @@
       "type": "TEXT",
       "setting": {
         "font": "Arial",
-        "content": "Hello",
-        "fontSize": "76",
+        "content": "\nHello",
+        "fontSize": "48",
         "fontColor": "#f47373",
         "fontWeight": "normal",
         "inputAutoTimedAdvance": "1000"
@@ -237,9 +237,6 @@
   }, {
     "id": 2,
     "level": "trial"
-  }, {
-    "id": 3,
-    "level": "trial"
   }],
   "entity": {
     "1": {
@@ -267,22 +264,6 @@
     },
     "2": {
       "id": 2,
-      "name": "Image",
-      "type": "IMAGE",
-      "setting": {
-        "image": "",
-        "alignH": "center",
-        "alignV": "middle",
-        "width": "",
-        "height": "",
-        "effect": {},
-"inputAutoTimedAdvance": "200"
-      },
-      "condition": {},
-      "screenshot": ""
-    },
-    "3": {
-      "id": 3,
       "name": "Image",
       "type": "IMAGE",
       "setting": {
