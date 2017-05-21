@@ -85,7 +85,6 @@
     "json-loader": "^0.5.4",
     "papaparse": "^4.3.2",
     "phaser-ce": "^2.7.3",
-    "phaser-input": "^1.2.6",
     "url-loader": "^0.5.6",
     "webfontloader": "^1.6.27",
     "webpack": "^2.2.0",
