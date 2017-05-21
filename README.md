@@ -44,10 +44,10 @@ $ yarn start  # Start the development server (or `npm start`)
 |`deploy`           |Builds the application to ./dist|
 
 A successful start should look like this screenshot:
-![start](http://res.cloudinary.com/ikelabrepo/image/upload/c_scale,w_622/v1495391137/deployscreenshot_ed6xls.png)
+![start](http://res.cloudinary.com/ikelabrepo/image/upload/c_scale,w_622/v1495391136/startscreenshot_cly265.png)
 
 A successful deploy should look like this screenshot:
-![deploy](http://res.cloudinary.com/ikelabrepo/image/upload/v1495391137/deployscreenshot_ed6xls.png)
+![deploy](http://res.cloudinary.com/ikelabrepo/image/upload/c_scale,w_622/v1495391137/deployscreenshot_ed6xls.png)
 
 
 ## Project Structure
