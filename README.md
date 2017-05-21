@@ -46,10 +46,13 @@ $ yarn start  # Start the development server (or `npm start`)
 A successful start should look like this screenshot:
 
 
+
 ![start](http://res.cloudinary.com/ikelabrepo/image/upload/c_scale,w_622/v1495391136/startscreenshot_cly265.png)
 
 
+
 A successful deploy should look like this screenshot:
+
 
 
 ![deploy](http://res.cloudinary.com/ikelabrepo/image/upload/c_scale,w_622/v1495391137/deployscreenshot_ed6xls.png)
