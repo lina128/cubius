@@ -1,5 +1,5 @@
 # Cubius
-This project is designed to help students and researchers make online psychology experiments. It is built with Webpack and Phaser game engine. Check out the documentation below.
+This project is designed to help students and researchers make online psychology experiments. The engine takes experiment script, and then compile and run script in browser. Check out the documentation below.
 
 We are looking for contributors to design new modules and effects, please send a PR.
 
@@ -103,4 +103,4 @@ Out of the box, this project is deployable by serving the `./dist` folder genera
 
 ### Static Deployments
 
-Serve the application with a web server such as nginx by pointing it at your `./dist` folder. Make sure to direct incoming route requests to the root `./dist/index.html` file.
+Serve the application with a web server such as nginx by pointing it at your `./dist` folder. Make sure to direct incoming route requests to the root `./dist/index.html` file. Follow this article on how to host a static website on Amazon S3 (http://docs.aws.amazon.com/AmazonS3/latest/user-guide/static-website-hosting.html).
