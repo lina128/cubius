@@ -74,7 +74,7 @@ The project structure follows the **fractal** pattern demonstrated in this proje
 │   ├── main.js              # Application rendering
 │   ├── config.js            # Game configurations
 │   ├── Game                 # Main Game object for app
-│   ├── states               # Main route definitions and async split points
+│   ├── states               # States/Modules
 │   │   ├── index.js         # Bootstrap states
 │   │   ├── Blank.js         # Blank state
 │   │   ├── Boot.js          # Boot state
@@ -82,7 +82,7 @@ The project structure follows the **fractal** pattern demonstrated in this proje
 │   │   ├── End.js           # End state
 │   │   ├── Text.js          # User-defined state
 │   │   ├── Image.js         # User-defined state
-│   │   ├── effects             # Fractal route
+│   │   ├── effects          # Effects
 │   │   │   ├── index.js     # Bootstrap effects
 │   │   │   ├── flicker.js   # User-defined effect
 │   │   │   ├── flip.js      # User-defined effect
