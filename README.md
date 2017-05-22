@@ -1,5 +1,5 @@
 # Cubius
-This project is designed to help students and researchers make online psychology experiments. The engine takes experiment script, and then compile and run script in browser. Check out the documentation below.
+This project is designed to help students and researchers make online psychology experiments. The engine takes experiment script, and then compile and run script in browser. Read more about how to install below, and check out our [API documentation](#https://github.com/lina128/cubius/wiki).
 
 We are looking for contributors to design new modules and effects, please send a PR.
 
