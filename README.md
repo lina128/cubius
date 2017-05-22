@@ -40,7 +40,7 @@ $ yarn start  # Start the development server (or `npm start`)
 
 |`yarn <script>`    |Description|
 |-------------------|-----------|
-|`start`            |Serves your app at `localhost:1300`|
+|`start`            |Serves your app at `localhost:3000`|
 |`deploy`           |Builds the application to ./dist|
 
 A successful start should look like this screenshot:
