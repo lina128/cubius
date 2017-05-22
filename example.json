@@ -301,7 +301,7 @@
         "effect": {
           "type": "rotate",
           "setting": {
-            "duration": "145",
+            "duration": "125",
             "repeat" : "-1",
             "clockwise" : true
           }

@@ -2,10 +2,25 @@ import Phaser from 'phaser'
 import { shuffle } from '../utils'
 import * as myStates from './'
 
+const MEDIA = ['jpg', 'jpeg', 'png', 'gif']
+
 function checkMediaType (url) {
-  if (typeof url === 'string' && url.substring(0, 4) === 'http') {
+  if (typeof url !== 'string') {
+    return false
+  }
+
+  let idx = url.lastIndexOf('.')
+
+  if (idx < 0) {
+    return false
+  }
+
+  let type = url.substring(idx + 1)
+
+  if (MEDIA.indexOf(type) > -1) {
     return true
   }
+
   return false
 }
 
